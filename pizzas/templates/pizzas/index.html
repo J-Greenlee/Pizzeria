@@ -1,17 +1,17 @@
 {% extends "pizzas/base.html" %}
 
 {% block header %}
-<h2>
+<h2 style="font-family: merriweather; color:black">
     When you make a pizza, add as many toppings as you like!
 </h2>
 
-<div class='jumbotron'>
+<div style='background-color:#d17560 ;' class='jumbotron ' >
     <img src="https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/delish-homemade-pizza-horizontal-1542312378.png?crop=1.00xw:0.752xh;0,0.139xh&resize=640:*" alt="Pizza">
 </div>
 {% endblock header %}
 
 {% block content %}
-<h2>
+<h2 style="font-family: merriweather; color:black">
     <a href="{% url 'users:register' %}">Register an account</a> to make your own pizzas
     and add your favorite toppings!
 </h2>
