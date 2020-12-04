@@ -1,15 +1,59 @@
-<p>
-    <a href="{% url 'pizzas:index' %}">Home</a> - 
-    <a href="{% url 'pizzas:pizzas' %}">Create a Pizza</a> - 
+{% load bootstrap3 %}
 
-{% if user.is_authenticated %}
-    Hello, {{user.username}} - 
-    <a href="{% url 'users:logout' %}">Log out</a>
-{% else %}
-    <a href="{% url 'users:register' %}">Register</a> - 
-    <a href="{% url 'users:login' %}">Login</a>
-{% endif %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">    
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        
+        <title>Make Your Own Pizza</title>
+        
+        {% bootstrap_css %}
+        {% bootstrap_javascript %}
+    </head>
+    <body>
+        <!-- Static navbar -->
+       
+        <nav class="navbar navbar-default navbar-static-top">
+            <div class="container">
+       
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed"
+                        data-toggle="collapse" data-target="#navbar"
+                        aria-expanded="false" aria-controls="navbar">
+                    </button>
+                    
+                </div>
+       
+                </div id="navbar" class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav">
+                        <li><a href="{% url 'pizzas:index' %}">Home</a></li>
+                        <li><a href="{% url 'pizzas:pizzas' %}">Create a Pizza</a></li>
 
-</p>
+                        {% if user.is_authenticated %}
+                            <li><a>Hello, {{ user.username }}.</a></li>
+                            <li><a href="{% url 'users:logout' %}">log out</a></li>
+                        {% else %}
+                            <li><a href="{% url 'users:register' %}">register</a></li>
+                            <li><a href="{% url 'users:login' %}">log in</a></li>
+                        {% endif %}
+                    </ul>
+                </div><!--/.nav-collapse -->
+            </div>
+        </nav>
 
-{% block content %}{% endblock content %}
+        <div class="container">
+            <div class="page-header">
+                {% block header %}{% endblock header %}
+            </div>
+            <div>
+                {% block content %}{% endblock content %}
+            </div>
+        </div> <!-- /container -->
+        
+    </body>
+    
+</html>

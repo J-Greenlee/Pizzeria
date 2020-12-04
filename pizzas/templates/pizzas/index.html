@@ -1,10 +1,19 @@
 {% extends "pizzas/base.html" %}
 
-{% block content %}
+{% block header %}
+<h2>
+    When you make a pizza, add as many toppings as you like!
+</h2>
 
-<p>Welcome! Make as many pizzas as you would like.</p>
-<p>
+<div class='jumbotron'>
     <img src="https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/delish-homemade-pizza-horizontal-1542312378.png?crop=1.00xw:0.752xh;0,0.139xh&resize=640:*" alt="Pizza">
-</p>
+</div>
+{% endblock header %}
+
+{% block content %}
+<h2>
+    <a href="{% url 'users:register' %}">Register an account</a> to make your own pizzas
+    and add your favorite toppings!
+</h2>
 
 {% endblock content %}

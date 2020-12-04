@@ -1,17 +1,23 @@
 {% extends "pizzas/base.html" %}
 
-{% block content %}
+{% block header %}
+<h1>Choose or add a pizza</h1>
+<div class='jumbotron'>
+    <img src="https://cdn.foodism.co.uk/featured_image/5c51a4ec43e1b.jpeg" alt="lots of pizza" width="600" height="300">
+</div>
+{% endblock header %}
 
-<p> Pizzas</p>
+{% block content %}
 <ul>
     {% for pizza in pizzas %}
     <li>
-        <a href="{% url 'pizzas:pizza' pizza.id %}">{{ pizza }}</a>
+        <h3>
+            <a href="{% url 'pizzas:pizza' pizza.id %}">{{ pizza }}</a>
+        </h3>
     </li>
     {% empty %}
         <li>No Pizzas have been added yet.</li>
     {% endfor %}
 </ul>
-<a href="{% url 'pizzas:new_pizza' %}">Add a new pizza</a>
-
+<h3><a href="{% url 'pizzas:new_pizza' %}">Add a new pizza</a></h3>
 {% endblock content %}

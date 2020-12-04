@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'pizzas',
+    'bootstrap3',
 
 ]
 
@@ -123,3 +124,8 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 LOGIN_URL = 'users:login'
+
+#settings for bootstrap3
+BOOTSTRAP3 = {
+    'include_jquery': True,
+}
